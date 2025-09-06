@@ -1,56 +1,188 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact - Rg_Dev</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root{--bg:#0b0b0b;--accent:#e64b4b;--card:#111;}
-    body{margin:0;background:var(--bg);font-family:"Inter",sans-serif;color:#fff;}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact - Rg_Dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* Navigation */
-    .nav{position:fixed;top:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between;z-index:100;}
-    .brand{font-weight:700;color:var(--accent);font-family:"Poppins",sans-serif;font-size:20px;}
-    .menu{display:flex;gap:16px;align-items:center;font-weight:500;font-size:15px;flex-wrap:wrap;}
-    .menu a{color:rgba(255,255,255,0.8);text-decoration:none;padding:6px 4px;border-radius:6px;transition:0.3s;}
-    .menu a.active{color:var(--accent);border-bottom:2px solid rgba(230,75,75,0.18);}
-    .menu a:hover{color:var(--accent)}
+<style>
+  :root {
+    --bg: #0b0b0b;
+    --accent: #e64b4b;
+    --card: #111;
+    --muted: #c9c6c6;
+  }
 
-    /* Contact Section */
-    .section{margin-top:120px;padding:40px 20px;max-width:800px;margin-left:auto;margin-right:auto;text-align:center;}
-    .title{font-size:34px;font-family:"Poppins",sans-serif;margin-bottom:30px;}
-    .title span{color:var(--accent);}
-    .contact-box{background:var(--card);border-radius:18px;padding:30px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
-    .contact-item{margin:15px 0;font-size:18px;color:#ddd;}
-    .contact-item strong{color:var(--accent);}
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    padding: 16px;
+  }
 
-    /* Contact Form */
-    form{display:flex;flex-direction:column;gap:15px;margin-top:20px;}
-    input, textarea{padding:12px;border:none;border-radius:8px;background:#222;color:#fff;font-size:15px;}
-    textarea{resize:none;min-height:100px;}
-    button{padding:12px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;transition:0.3s;}
-    button:hover{background:#c53d3d;}
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .brand {
+    font-family: Poppins, system-ui;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 20px;
+  }
+  .hamburger {
+    background: #000; /* solid black */
+    border: 1px solid #111;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .hamburger:hover { background: #111; }
 
-    /* Socials */
-    .socials{margin-top:25px;display:flex;justify-content:center;gap:15px;}
-    .socials a{color:#fff;font-size:20px;text-decoration:none;background:var(--accent);padding:12px;border-radius:50%;transition:0.3s;}
-    .socials a:hover{background:#c53d3d;}
+  /* slide-out nav drawer */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 360px;
+    height: 100vh;
+    background: #000; /* solid black */
+    box-shadow: -12px 0 30px rgba(0,0,0,0.6);
+    padding: 24px;
+    transition: right .28s ease;
+    z-index: 50;
+  }
+  .nav-drawer.open { right: 0; }
+  .nav-close {
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .nav-links {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    display: block;
+  }
+  .nav-links a.active {
+    background: rgba(230,75,75,0.08);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .nav-links a:hover { color: var(--accent); }
 
-    /* Mobile Fix */
-    @media(max-width:768px){
-      .nav{flex-direction:column;gap:10px;}
-      .menu{justify-content:center;}
-      .title{font-size:28px;}
-      .contact-item{font-size:16px;}
-    }
-  </style>
+  /* Contact Section */
+  .section {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .title {
+    font-size: 34px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+  }
+  .title span { color: var(--accent); }
+
+  .contact-box {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+  .contact-item {
+    margin: 15px 0;
+    font-size: 18px;
+    color: #ddd;
+  }
+  .contact-item strong { color: var(--accent); }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  input, textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #222;
+    color: #fff;
+    font-size: 15px;
+  }
+  textarea { resize: none; min-height: 100px; }
+
+  button {
+    padding: 12px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover { background: #c53d3d; }
+
+  .socials {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .socials a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    background: var(--accent);
+    padding: 12px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .socials a:hover { background: #c53d3d; }
+</style>
 </head>
+
 <body>
-  <div class="nav">
+
+  <!-- top bar -->
+  <div class="topbar">
     <div class="brand">Rg_Dev</div>
-    <nav class="menu">
+    <button class="hamburger" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <!-- nav drawer -->
+  <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+    <button class="nav-close" id="closeNav" aria-label="Close menu">✕</button>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="skills.html">Skills</a>
@@ -58,15 +190,15 @@
       <a href="experience.html">Experience</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
-  </div>
+  </aside>
 
+  <!-- Contact section -->
   <section class="section">
     <h1 class="title">Get in <span>Touch</span></h1>
     <div class="contact-box">
       <div class="contact-item"><strong>Email:</strong> thegreatrgdev@gmail.com</div>
       <div class="contact-item"><strong>Phone:</strong> +91 93721 57655</div>
 
-      <!-- Contact Form -->
       <form>
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
@@ -74,12 +206,29 @@
         <button type="submit">Send Message</button>
       </form>
 
-      <!-- Social Links -->
       <div class="socials">
         <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </section>
+
+<script>
+  // Nav open/close
+  const menuBtn = document.getElementById('menuBtn');
+  const navDrawer = document.getElementById('navDrawer');
+  const closeNav = document.getElementById('closeNav');
+
+  menuBtn.addEventListener('click', () => {
+    const open = navDrawer.classList.toggle('open');
+    navDrawer.setAttribute('aria-hidden', !open);
+  });
+
+  closeNav.addEventListener('click', () => {
+    navDrawer.classList.remove('open');
+    navDrawer.setAttribute('aria-hidden', 'true');
+  });
+</script>
+
 </body>
 </html>
