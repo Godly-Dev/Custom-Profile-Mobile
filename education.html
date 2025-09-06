@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Education - Rg_Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0b0b;
+      --accent:#e64b4b;
+      --card:#111;
+    }
+
+    body {
+      margin:0;
+      background:var(--bg);
+      font-family:"Inter",sans-serif;
+      color:#fff;
+    }
+
+    /* Navigation */
+    .nav {
+      position:fixed;
+      top:12px;
+      left:16px;
+      right:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:8px 12px;
+      background:rgba(0,0,0,0.7);
+      border-radius:10px;
+      z-index:100;
+    }
+    .brand {
+      font-weight:700;
+      color:var(--accent);
+      font-family:"Poppins",sans-serif;
+      font-size:18px;
+    }
+    .menu {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      font-weight:500;
+      font-size:14px;
+    }
+    .menu a {
+      color:rgba(255,255,255,0.8);
+      text-decoration:none;
+      padding:6px 8px;
+      border-radius:6px;
+      transition:0.3s;
+    }
+    .menu a.active {
+      color:var(--accent);
+      border-bottom:2px solid rgba(230,75,75,0.3);
+    }
+    .menu a:hover {
+      color:var(--accent);
+    }
+
+    /* Education Section */
+    .section {
+      margin-top:80px;
+      padding:20px;
+      max-width:800px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .title {
+      font-size:28px;
+      font-family:"Poppins",sans-serif;
+      margin-bottom:24px;
+      text-align:center;
+    }
+    .title span {
+      color:var(--accent);
+    }
+    .timeline {
+      border-left:2px solid var(--accent);
+      padding-left:20px;
+    }
+    .edu-item {
+      margin-bottom:28px;
+      position:relative;
+    }
+    .edu-item::before {
+      content:"";
+      width:14px;
+      height:14px;
+      background:var(--accent);
+      border-radius:50%;
+      position:absolute;
+      left:-28px;
+      top:6px;
+    }
+    .edu-item h3 {
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      color:var(--accent);
+      font-size:18px;
+    }
+    .edu-item p {
+      margin:6px 0;
+      color:#ccc;
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    /* Tablet & larger screens */
+    @media (min-width:600px) {
+      .section {
+        padding:40px;
+      }
+      .title {
+        font-size:34px;
+      }
+      .edu-item h3 {
+        font-size:20px;
+      }
+      .edu-item p {
+        font-size:15px;
+      }
+    }
+
+    @media (min-width:1024px) {
+      .title {
+        font-size:38px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="brand">Rg_Dev</div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <section class="section">
+    <h1 class="title">My <span>Education</span></h1>
+    <div class="timeline">
+      <div class="edu-item">
+        <h3>Bachelor of Computer Science</h3>
+        <p>Rizvi College Of Engineering — 2024–2026</p>
+        <p>Focused on software engineering, web technologies, and system design.</p>
+      </div>
+      <div class="edu-item">
+        <h3>High School</h3>
+        <p>St. Andrews High School — 2016–2018</p>
+        <p>Introduced to programming and began coding in 7th grade.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

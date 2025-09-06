@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hire Me - Rg_Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0b0b; --accent:#e64b4b; --card:#111; }
+    body { margin:0; background:var(--bg); font-family:"Inter",sans-serif; color:#fff; }
+
+    /* 🔹 Navigation */
+    .nav { position:fixed; top:20px; left:20px; right:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; z-index:100; }
+    .brand { font-weight:700; color:var(--accent); font-family:"Poppins",sans-serif; font-size:20px; }
+    .menu { display:flex; gap:16px; align-items:center; font-weight:500; font-size:15px; flex-wrap:wrap; }
+    .menu a { color:rgba(255,255,255,0.8); text-decoration:none; padding:6px 4px; border-radius:6px; transition:0.3s; }
+    .menu a.active { color:var(--accent); border-bottom:2px solid rgba(230,75,75,0.18); }
+    .menu a:hover { color:var(--accent); }
+
+    /* 🔹 Section */
+    .section { margin-top:120px; padding:40px 20px; max-width:900px; margin-left:auto; margin-right:auto; text-align:center; }
+    .title { font-size:34px; font-family:"Poppins",sans-serif; margin-bottom:20px; }
+    .title span { color:var(--accent); }
+    .desc { color:#ccc; font-size:16px; line-height:1.6; max-width:650px; margin:0 auto 30px; }
+
+    /* 🔹 CTA Button */
+    .cta-btn { display:inline-block; padding:14px 32px; background:var(--accent); color:#fff; font-weight:600; text-decoration:none; border-radius:12px; transition:0.3s; }
+    .cta-btn:hover { background:#ff5e5e; transform:translateY(-3px); }
+
+    /* 🔹 Contact Form */
+    .form-box { background:var(--card); border-radius:18px; padding:30px; margin-top:40px; box-shadow:0 8px 25px rgba(0,0,0,0.4); text-align:left; }
+    .form-box h2 { font-family:"Poppins",sans-serif; margin-bottom:20px; color:var(--accent); text-align:center; }
+    form { display:flex; flex-direction:column; gap:16px; }
+    input,textarea { padding:12px 14px; border-radius:10px; border:none; background:#222; color:#fff; font-size:15px; }
+    textarea { min-height:120px; resize:vertical; }
+    button { padding:12px; border:none; border-radius:10px; background:var(--accent); color:#fff; font-weight:600; font-size:16px; cursor:pointer; transition:0.3s; }
+    button:hover { background:#ff5e5e; }
+
+    /* 🔹 Mobile */
+    @media(max-width:768px) {
+      .title { font-size:28px; }
+      .desc { font-size:15px; }
+      .menu { justify-content:center; }
+      .form-box { padding:20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Navigation -->
+  <div class="nav">
+    <div class="brand">Rg_Dev</div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+      <a href="hireme.html" class="active">Hire Me</a>
+    </nav>
+  </div>
+
+  <!-- 🔹 Hire Me Section -->
+  <section class="section">
+    <h1 class="title">Hire <span>Me</span></h1>
+    <p class="desc">
+      I specialize in web designing and full-stack development, building responsive, modern, and scalable websites. 
+      If you are looking for someone to turn your ideas into a professional digital presence, let's work together!
+    </p>
+    <a href="#contact-form" class="cta-btn">Get in Touch</a>
+
+    <!-- 🔹 Contact Form -->
+    <div class="form-box" id="contact-form">
+      <h2>Work With Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Project Details..." required></textarea>
+        <button type="submit">Send Request</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

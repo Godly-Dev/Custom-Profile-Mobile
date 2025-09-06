@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skills - Rg_Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0b0b;
+      --accent:#e64b4b;
+      --card:#111;
+    }
+
+    body {
+      margin:0;
+      background:var(--bg);
+      font-family:"Inter",sans-serif;
+      color:#fff;
+    }
+
+    /* 🔹 Navigation bar */
+    .nav {
+      position:fixed;
+      top:12px;
+      left:16px;
+      right:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:8px 12px;
+      background:rgba(0,0,0,0.7);
+      border-radius:10px;
+      z-index:100;
+    }
+    .brand {
+      font-weight:700;
+      color:var(--accent);
+      font-family:"Poppins",sans-serif;
+      font-size:18px;
+    }
+    .menu {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      font-weight:500;
+      font-size:14px;
+    }
+    .menu a {
+      color:rgba(255,255,255,0.8);
+      text-decoration:none;
+      padding:6px 8px;
+      border-radius:6px;
+      transition:0.3s;
+    }
+    .menu a.active {
+      color:var(--accent);
+      border-bottom:2px solid rgba(230,75,75,0.3);
+    }
+    .menu a:hover { color:var(--accent); }
+
+    /* 🔹 Skills Section */
+    .skills {
+      margin-top:80px;
+      padding:20px;
+      max-width:1000px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .title {
+      font-size:28px;
+      font-family:"Poppins",sans-serif;
+      margin-bottom:24px;
+      text-align:center;
+    }
+    .title span { color:var(--accent); }
+
+    .skills-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+    .skill-card {
+      background:var(--card);
+      border-radius:14px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    }
+    .skill-card h2 {
+      margin:0 0 16px;
+      color:var(--accent);
+      font-size:18px;
+      font-family:"Poppins",sans-serif;
+    }
+    .skill {
+      margin-bottom:14px;
+    }
+    .skill span {
+      display:block;
+      margin-bottom:6px;
+      font-size:13px;
+      font-weight:500;
+      color:#ddd;
+    }
+    .progress {
+      background:#222;
+      border-radius:8px;
+      height:8px;
+      overflow:hidden;
+    }
+    .progress-bar {
+      height:100%;
+      background:var(--accent);
+      width:0;
+      transition:width 1s ease;
+    }
+
+    /* Tablet & Desktop */
+    @media (min-width:600px) {
+      .skills-grid {
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+      }
+      .title { font-size:34px; }
+      .skill-card h2 { font-size:20px; }
+    }
+
+    @media (min-width:1024px) {
+      .title { font-size:38px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Navigation -->
+  <div class="nav">
+    <div class="brand">Rg_Dev</div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <!-- 🔹 Skills Section -->
+  <section class="skills">
+    <h1 class="title">My <span>Skills</span></h1>
+    <div class="skills-grid">
+      <!-- Web Design Skills -->
+      <div class="skill-card">
+        <h2>Web Designing</h2>
+        <div class="skill"><span>HTML5</span><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
+        <div class="skill"><span>CSS3</span><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+        <div class="skill"><span>Responsive Design</span><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
+        <div class="skill"><span>UI/UX Design</span><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+        <div class="skill"><span>Figma / Adobe XD</span><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+      </div>
+
+      <!-- Web Development Skills -->
+      <div class="skill-card">
+        <h2>Web Development</h2>
+        <div class="skill"><span>JavaScript (ES6+)</span><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+        <div class="skill"><span>React.js</span><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
+        <div class="skill"><span>Node.js</span><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+        <div class="skill"><span>Express.js</span><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+        <div class="skill"><span>MongoDB</span><div class="progress"><div class="progress-bar" style="width:65%"></div></div></div>
+        <div class="skill"><span>PHP / MySQL</span><div class="progress"><div class="progress-bar" style="width:60%"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Animate Progress Bars -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".progress-bar").forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = "0"; // reset first
+        setTimeout(() => { bar.style.width = width; }, 300);
+      });
+    });
+  </script>
+</body>
+</html>

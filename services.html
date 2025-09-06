@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services - Rg_Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0b0b;
+      --accent:#e64b4b;
+      --card:#111;
+    }
+
+    body {
+      margin:0;
+      background:var(--bg);
+      font-family:"Inter",sans-serif;
+      color:#fff;
+    }
+
+    /* Navigation */
+    .nav {
+      position:fixed;
+      top:12px;
+      left:16px;
+      right:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:8px 12px;
+      background:rgba(0,0,0,0.7);
+      border-radius:10px;
+      z-index:100;
+    }
+    .brand {
+      font-weight:700;
+      color:var(--accent);
+      font-family:"Poppins",sans-serif;
+      font-size:18px;
+    }
+    .menu {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      font-weight:500;
+      font-size:14px;
+    }
+    .menu a {
+      color:rgba(255,255,255,0.8);
+      text-decoration:none;
+      padding:6px 8px;
+      border-radius:6px;
+      transition:0.3s;
+    }
+    .menu a.active {
+      color:var(--accent);
+      border-bottom:2px solid rgba(230,75,75,0.3);
+    }
+    .menu a:hover {
+      color:var(--accent);
+    }
+
+    /* Services Section */
+    .section {
+      margin-top:80px;
+      padding:20px;
+      max-width:1000px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .title {
+      font-size:28px;
+      font-family:"Poppins",sans-serif;
+      margin-bottom:24px;
+      text-align:center;
+    }
+    .title span {
+      color:var(--accent);
+    }
+    .services-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+    .card {
+      background:var(--card);
+      border-radius:16px;
+      padding:20px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 6px 16px rgba(0,0,0,0.5);
+      transition:0.3s;
+    }
+    .card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 10px 20px rgba(0,0,0,0.6);
+    }
+    .card h3 {
+      margin:0 0 10px;
+      font-family:"Poppins",sans-serif;
+      color:var(--accent);
+      font-size:18px;
+    }
+    .card p {
+      margin:0;
+      color:#ccc;
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    /* Tablet & larger screens */
+    @media (min-width:600px) {
+      .services-grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+      .title {
+        font-size:34px;
+      }
+    }
+
+    @media (min-width:1024px) {
+      .services-grid {
+        grid-template-columns:repeat(3,1fr);
+      }
+      .title {
+        font-size:38px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="brand">Rg_Dev</div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <section class="section">
+    <h1 class="title">My <span>Services</span></h1>
+    <div class="services-grid">
+      <div class="card">
+        <h3>Web Designing</h3>
+        <p>Creative and modern designs that ensure a smooth user experience with professional layouts and responsive structures.</p>
+      </div>
+      <div class="card">
+        <h3>Web Developing</h3>
+        <p>Full-cycle website development, from idea to deployment, delivering clean and functional code.</p>
+      </div>
+      <div class="card">
+        <h3>Front-End Developer</h3>
+        <p>Building responsive and interactive interfaces using HTML, CSS, JavaScript, and frameworks like React.</p>
+      </div>
+      <div class="card">
+        <h3>Back-End Developer</h3>
+        <p>Developing robust server-side logic, APIs, and database integration using Node.js, PHP, and MySQL.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
