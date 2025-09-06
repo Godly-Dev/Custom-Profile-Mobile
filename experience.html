@@ -1,159 +1,218 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Experience - Rg_Dev</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:#0b0b0b;
-      --accent:#e64b4b;
-      --card:#111;
-    }
-    body {
-      margin:0;
-      background:var(--bg);
-      font-family:"Inter",sans-serif;
-      color:#fff;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experience - Rg_Dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-    /* 🔹 Navigation */
-    .nav {
-      position:fixed;
-      top:20px;
-      left:20px;
-      right:20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      z-index:100;
-    }
-    .brand {
-      font-weight:700;
-      color:var(--accent);
-      font-family:"Poppins",sans-serif;
-      font-size:20px;
-    }
-    .menu {
-      display:flex;
-      gap:16px;
-      align-items:center;
-      font-weight:500;
-      font-size:15px;
-    }
-    .menu a {
-      color:rgba(255,255,255,0.8);
-      text-decoration:none;
-      padding:6px 4px;
-      border-radius:6px;
-      transition:0.3s;
-    }
-    .menu a.active {
-      color:var(--accent);
-      border-bottom:2px solid rgba(230,75,75,0.18);
-    }
-    .menu a:hover {
-      color:var(--accent);
-    }
+<style>
+  :root {
+    --bg: #0b0b0b;
+    --accent: #e64b4b;
+    --card: #111;
+    --muted: #c9c6c6;
+  }
 
-    /* 🔹 Section */
-    .section {
-      margin-top:120px;
-      padding:40px 20px;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-    .title {
-      font-size:34px;
-      font-family:"Poppins",sans-serif;
-      margin-bottom:30px;
-      text-align:center;
-    }
-    .title span {
-      color:var(--accent);
-    }
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 16px;
+  }
 
-    /* 🔹 Experience Cards */
-    .exp-list {
-      display:flex;
-      flex-direction:column;
-      gap:25px;
-    }
-    .exp-card {
-      background:var(--card);
-      border-radius:18px;
-      padding:20px 24px;
-      border:1px solid rgba(255,255,255,0.05);
-      box-shadow:0 6px 20px rgba(0,0,0,0.4);
-    }
-    .exp-card h3 {
-      margin:0;
-      font-family:"Poppins",sans-serif;
-      color:var(--accent);
-      font-size:20px;
-    }
-    .exp-card span {
-      font-size:14px;
-      color:#aaa;
-    }
-    .exp-card p {
-      margin-top:10px;
-      color:#ccc;
-      line-height:1.6;
-      font-size:15px;
-    }
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .brand {
+    font-family: Poppins, system-ui;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 20px;
+  }
+  .hamburger {
+    background: #000; /* solid black */
+    border: 1px solid #111;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .hamburger:hover {
+    background: #111;
+  }
 
-    /* 🔹 Responsive */
-    @media (max-width:768px){
-      .menu {
-        flex-wrap:wrap;
-        gap:12px;
-        justify-content:center;
-      }
-      .title {
-        font-size:28px;
-      }
-      .exp-card h3 {
-        font-size:18px;
-      }
-      .section {
-        padding:30px 15px;
-      }
-    }
-  </style>
+  /* slide-out nav drawer */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 360px;
+    height: 100vh;
+    background: #000; /* solid black */
+    box-shadow: -12px 0 30px rgba(0,0,0,0.6);
+    padding: 24px;
+    transition: right .28s ease;
+    z-index: 50;
+  }
+  .nav-drawer.open { right: 0; }
+  .nav-close {
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .nav-links {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    display: block;
+  }
+  .nav-links a.active {
+    background: rgba(230,75,75,0.08);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  /* Experience Section */
+  .section {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .title {
+    font-size: 36px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .title span { color: var(--accent); }
+  .exp-list { display: flex; flex-direction: column; gap: 30px; }
+  .exp-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 25px 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+  .exp-card h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: var(--accent);
+  }
+  .exp-card span {
+    font-size: 14px;
+    color: #aaa;
+  }
+  .exp-card p {
+    margin-top: 10px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+</style>
 </head>
+
 <body>
-  <!-- 🔹 Navigation -->
-  <div class="nav">
+
+  <!-- top bar -->
+  <div class="topbar">
     <div class="brand">Rg_Dev</div>
-    <nav class="menu">
+    <button class="hamburger" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <!-- nav drawer -->
+  <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+    <button class="nav-close" id="closeNav" aria-label="Close menu">✕</button>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="skills.html">Skills</a>
       <a href="education.html">Education</a>
       <a href="experience.html" class="active">Experience</a>
       <a href="contact.html">Contact</a>
-      <a href="hireme.html">Hire Me</a>
     </nav>
-  </div>
+  </aside>
 
-  <!-- 🔹 Experience Section -->
+  <!-- Experience section -->
   <section class="section">
     <h1 class="title">My <span>Experience</span></h1>
     <div class="exp-list">
       <div class="exp-card">
         <h3>Front-End Developer</h3>
         <span>No Experience</span>
-        <p>Focused on building responsive websites using HTML, CSS, and JavaScript. Enthusiastic about learning React and creating seamless UI/UX designs.</p>
+        <p>Developing modern, responsive web applications using React, CSS3, and JavaScript. Collaborated with designers to deliver seamless UI/UX.</p>
       </div>
+
       <div class="exp-card">
         <h3>Web Development Intern</h3>
         <span>No Experience</span>
-        <p>Gaining practical knowledge of backend systems with PHP and MySQL, and learning collaboration through team-based coding practices.</p>
+        <p>Worked on PHP & MySQL backend systems, learned agile methodologies, and improved team-based coding practices.</p>
+      </div>
+
+      <div class="exp-card">
+        <h3>Freelance Web Designer</h3>
+        <span>No Experience</span>
+        <p>Created portfolio websites and landing pages for small clients, focusing on responsive design and modern UI principles.</p>
+      </div>
+
+      <div class="exp-card">
+        <h3>Open Source Contributor</h3>
+        <span>No Experience</span>
+        <p>Contributed to GitHub projects by fixing bugs and improving documentation. Gained experience collaborating with developers worldwide.</p>
+      </div>
+
+      <div class="exp-card">
+        <h3>Personal Projects</h3>
+        <span>Ongoing</span>
+        <p>Built multiple full-stack projects including a task manager app and a blog CMS using React, Node.js, and MongoDB to practice real-world development.</p>
       </div>
     </div>
   </section>
+
+<script>
+  // Nav open/close
+  const menuBtn = document.getElementById('menuBtn');
+  const navDrawer = document.getElementById('navDrawer');
+  const closeNav = document.getElementById('closeNav');
+
+  menuBtn.addEventListener('click', () => {
+    const open = navDrawer.classList.toggle('open');
+    navDrawer.setAttribute('aria-hidden', !open);
+  });
+
+  closeNav.addEventListener('click', () => {
+    navDrawer.classList.remove('open');
+    navDrawer.setAttribute('aria-hidden', 'true');
+  });
+</script>
+
 </body>
 </html>
+
