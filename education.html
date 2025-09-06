@@ -1,142 +1,156 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Education - Rg_Dev</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:#0b0b0b;
-      --accent:#e64b4b;
-      --card:#111;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Education - Rg_Dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-    body {
-      margin:0;
-      background:var(--bg);
-      font-family:"Inter",sans-serif;
-      color:#fff;
-    }
+<style>
+  :root {
+    --bg: #0b0b0b;
+    --accent: #e64b4b;
+    --card: #111;
+    --muted: #c9c6c6;
+  }
 
-    /* Navigation */
-    .nav {
-      position:fixed;
-      top:12px;
-      left:16px;
-      right:16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:8px 12px;
-      background:rgba(0,0,0,0.7);
-      border-radius:10px;
-      z-index:100;
-    }
-    .brand {
-      font-weight:700;
-      color:var(--accent);
-      font-family:"Poppins",sans-serif;
-      font-size:18px;
-    }
-    .menu {
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      font-weight:500;
-      font-size:14px;
-    }
-    .menu a {
-      color:rgba(255,255,255,0.8);
-      text-decoration:none;
-      padding:6px 8px;
-      border-radius:6px;
-      transition:0.3s;
-    }
-    .menu a.active {
-      color:var(--accent);
-      border-bottom:2px solid rgba(230,75,75,0.3);
-    }
-    .menu a:hover {
-      color:var(--accent);
-    }
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 16px;
+  }
 
-    /* Education Section */
-    .section {
-      margin-top:80px;
-      padding:20px;
-      max-width:800px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-    .title {
-      font-size:28px;
-      font-family:"Poppins",sans-serif;
-      margin-bottom:24px;
-      text-align:center;
-    }
-    .title span {
-      color:var(--accent);
-    }
-    .timeline {
-      border-left:2px solid var(--accent);
-      padding-left:20px;
-    }
-    .edu-item {
-      margin-bottom:28px;
-      position:relative;
-    }
-    .edu-item::before {
-      content:"";
-      width:14px;
-      height:14px;
-      background:var(--accent);
-      border-radius:50%;
-      position:absolute;
-      left:-28px;
-      top:6px;
-    }
-    .edu-item h3 {
-      margin:0;
-      font-family:"Poppins",sans-serif;
-      color:var(--accent);
-      font-size:18px;
-    }
-    .edu-item p {
-      margin:6px 0;
-      color:#ccc;
-      line-height:1.5;
-      font-size:14px;
-    }
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .brand {
+    font-family: Poppins, system-ui;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 20px;
+  }
+  .hamburger {
+    background: #000; /* solid black */
+    border: 1px solid #111;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .hamburger:hover {
+    background: #111;
+  }
 
-    /* Tablet & larger screens */
-    @media (min-width:600px) {
-      .section {
-        padding:40px;
-      }
-      .title {
-        font-size:34px;
-      }
-      .edu-item h3 {
-        font-size:20px;
-      }
-      .edu-item p {
-        font-size:15px;
-      }
-    }
+  /* slide-out nav drawer */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 360px;
+    height: 100vh;
+    background: #000; /* solid black */
+    box-shadow: -12px 0 30px rgba(0,0,0,0.6);
+    padding: 24px;
+    transition: right .28s ease;
+    z-index: 50;
+  }
+  .nav-drawer.open { right: 0; }
+  .nav-close {
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .nav-links {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    display: block;
+  }
+  .nav-links a.active {
+    background: rgba(230,75,75,0.08);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .nav-links a:hover {
+    color: var(--accent);
+  }
 
-    @media (min-width:1024px) {
-      .title {
-        font-size:38px;
-      }
-    }
-  </style>
+  /* Education Section */
+  .section {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .title {
+    font-size: 36px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .title span { color: var(--accent); }
+  .edu-list { display: flex; flex-direction: column; gap: 30px; }
+  .edu-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 25px 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+  .edu-card h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: var(--accent);
+  }
+  .edu-card span {
+    font-size: 14px;
+    color: #aaa;
+  }
+  .edu-card p {
+    margin-top: 10px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+</style>
 </head>
+
 <body>
-  <div class="nav">
+
+  <!-- top bar -->
+  <div class="topbar">
     <div class="brand">Rg_Dev</div>
-    <nav class="menu">
+    <button class="hamburger" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <!-- nav drawer -->
+  <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+    <button class="nav-close" id="closeNav" aria-label="Close menu">✕</button>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="skills.html">Skills</a>
@@ -144,22 +158,49 @@
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </div>
+  </aside>
 
+  <!-- Education section -->
   <section class="section">
     <h1 class="title">My <span>Education</span></h1>
-    <div class="timeline">
-      <div class="edu-item">
+    <div class="edu-list">
+      <div class="edu-card">
         <h3>Bachelor of Computer Science</h3>
-        <p>Rizvi College Of Engineering — 2024–2026</p>
+        <span>Rizvi College Of Engineering — 2024–2026</span>
         <p>Focused on software engineering, web technologies, and system design.</p>
       </div>
-      <div class="edu-item">
+
+      <div class="edu-card">
         <h3>High School</h3>
-        <p>St. Andrews High School — 2016–2018</p>
+        <span>St. Andrews High School — 2016–2018</span>
         <p>Introduced to programming and began coding in 7th grade.</p>
+      </div>
+
+      <div class="edu-card">
+        <h3>Middle School</h3>
+        <span>Greenfield Academy — 2014–2016</span>
+        <p>Developed interest in mathematics and science, participated in coding clubs.</p>
       </div>
     </div>
   </section>
+
+<script>
+  // Nav open/close
+  const menuBtn = document.getElementById('menuBtn');
+  const navDrawer = document.getElementById('navDrawer');
+  const closeNav = document.getElementById('closeNav');
+
+  menuBtn.addEventListener('click', () => {
+    const open = navDrawer.classList.toggle('open');
+    navDrawer.setAttribute('aria-hidden', !open);
+  });
+
+  closeNav.addEventListener('click', () => {
+    navDrawer.classList.remove('open');
+    navDrawer.setAttribute('aria-hidden', 'true');
+  });
+</script>
+
 </body>
 </html>
+
